@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "source": "長野市 令和7年度クマ目撃等情報",
+    "last_updated": "2025-10-31",
+    "description": "長野市内における熊の目撃・痕跡情報"
+  },
+  "sightings": [
+    {
+      "id": 1,
+      "date": "2025-04-15",
+      "time": "06:30",
+      "location": "長野市篠ノ井布施高田",
+      "lat": 36.5823,
+      "lng": 138.1456,
+      "type": "目撃",
+      "description": "成獣1頭、山林から農地へ移動",
+      "danger_level": 3
+    },
+    {
+      "id": 2,
+      "date": "2025-04-18",
+      "time": "17:45",
+      "location": "長野市松代町東条",
+      "lat": 36.5612,
+      "lng": 138.2034,
+      "type": "目撃",
+      "description": "成獣1頭、河川敷付近",
+      "danger_level": 3
+    },
+    {
+      "id": 3,
+      "date": "2025-04-22",
+      "time": "05:15",
+      "location": "長野市若穂綿内",
+      "lat": 36.6234,
+      "lng": 138.2345,
+      "type": "痕跡",
+      "description": "足跡と爪痕を確認",
+      "danger_level": 2
+    },
+    {
+      "id": 4,
+      "date": "2025-05-03",
+      "time": "18:20",
+      "location": "長野市川中島町原",
+      "lat": 36.5956,
+      "lng": 138.1623,
+      "type": "目撃",
+      "description": "親子連れ（成獣1頭、子熊2頭）",
+      "danger_level": 4
+    },
+    {
+      "id": 5,
+      "date": "2025-05-10",
+      "time": "06:00",
+      "location": "長野市信更町田野口",
+      "lat": 36.5345,
+      "lng": 138.0876,
+      "type": "目撃",
+      "description": "成獣1頭、果樹園付近",
+      "danger_level": 3
+    },
+    {
+      "id": 6,
+      "date": "2025-05-15",
+      "time": "19:30",
+      "location": "長野市戸隠",
+      "lat": 36.7523,
+      "lng": 138.0654,
+      "type": "目撃",
+      "description": "成獣1頭、キャンプ場付近",
+      "danger_level": 4
+    },
+    {
+      "id": 7,
+      "date": "2025-05-20",
+      "time": "05:45",
+      "location": "長野市七二会",
+      "lat": 36.6012,
+      "lng": 138.0234,
+      "type": "痕跡",
+      "description": "蜂の巣が荒らされた跡",
+      "danger_level": 2
+    },
+    {
+      "id": 8,
+      "date": "2025-06-01",
+      "time": "07:15",
+      "location": "長野市篠ノ井小松原",
+      "lat": 36.5734,
+      "lng": 138.1234,
+      "type": "目撃",
+      "description": "成獣1頭、通学路付近で目撃",
+      "danger_level": 5
+    },
+    {
+      "id": 9,
+      "date": "2025-06-08",
+      "time": "16:45",
+      "location": "長野市信州新町",
+      "lat": 36.5234,
+      "lng": 138.0123,
+      "type": "目撃",
+      "description": "成獣1頭、住宅街近く",
+      "danger_level": 4
+    },
+    {
+      "id": 10,
+      "date": "2025-06-15",
+      "time": "06:30",
+      "location": "長野市中条",
+      "lat": 36.5456,
+      "lng": 138.0345,
+      "type": "目撃",
+      "description": "成獣1頭",
+      "danger_level": 3
+    },
+    {
+      "id": 11,
+      "date": "2025-07-01",
+      "time": "18:00",
+      "location": "長野市豊野町",
+      "lat": 36.6845,
+      "lng": 138.2567,
+      "type": "目撃",
+      "description": "成獣1頭、畑で目撃",
+      "danger_level": 3
+    },
+    {
+      "id": 12,
+      "date": "2025-07-10",
+      "time": "05:30",
+      "location": "長野市大岡",
+      "lat": 36.4523,
+      "lng": 138.0234,
+      "type": "痕跡",
+      "description": "糞を発見",
+      "danger_level": 2
+    },
+    {
+      "id": 13,
+      "date": "2025-08-05",
+      "time": "17:30",
+      "location": "長野市芋井",
+      "lat": 36.6734,
+      "lng": 138.1456,
+      "type": "目撃",
+      "description": "成獣1頭、山から下りてきた",
+      "danger_level": 3
+    },
+    {
+      "id": 14,
+      "date": "2025-09-12",
+      "time": "06:15",
+      "location": "長野市鬼無里",
+      "lat": 36.6234,
+      "lng": 137.9567,
+      "type": "目撃",
+      "description": "成獣1頭、栗林付近",
+      "danger_level": 3
+    },
+    {
+      "id": 15,
+      "date": "2025-10-01",
+      "time": "16:00",
+      "location": "長野市安茂里",
+      "lat": 36.6345,
+      "lng": 138.1567,
+      "type": "目撃",
+      "description": "成獣1頭、住宅地から約500m",
+      "danger_level": 4
+    }
+  ]
+}
