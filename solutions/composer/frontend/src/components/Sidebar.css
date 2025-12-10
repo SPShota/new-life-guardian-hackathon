@@ -1,0 +1,208 @@
+.Sidebar {
+  width: 350px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.Sidebar-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.Sidebar-tabs button {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.Sidebar-tabs button:hover {
+  background: #f5f5f5;
+}
+
+.Sidebar-tabs button.active {
+  background: #667eea;
+  color: white;
+}
+
+.Sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.Section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.Section-header h3 {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.Badge {
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.Sightings-list ul,
+.Family-list ul {
+  list-style: none;
+}
+
+.Sighting-item,
+.Family-item {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.Sighting-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+}
+
+.Sighting-item.selected {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+
+.Sighting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.Distance-badge {
+  background: #ff6b6b;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+}
+
+.Sighting-date {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.Sighting-description {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.Family-header {
+  margin-bottom: 0.5rem;
+}
+
+.Family-location {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.Family-timestamp {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.Simulate-controls {
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.Simulate-controls label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.Simulate-controls input {
+  margin-right: 0.5rem;
+}
+
+.Simulate-btn,
+.Add-member-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.Simulate-btn:hover,
+.Add-member-btn:hover {
+  background: #5568d3;
+}
+
+.Empty-message {
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+}
+
+.Sidebar-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem;
+  background: #f9f9f9;
+}
+
+.Info-box {
+  font-size: 0.85rem;
+}
+
+.Info-box h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.Info-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.Info-box li {
+  margin-bottom: 0.4rem;
+  color: #666;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.Info-box li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .Sidebar {
+    width: 100%;
+    max-height: 40vh;
+  }
+}
