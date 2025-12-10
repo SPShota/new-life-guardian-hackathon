@@ -42,6 +42,35 @@ interface CoexistenceTip {
 // API Base URL
 const API_BASE = '/api';
 
+// descriptionから地域名を抽出するヘルパー関数
+const extractAreaName = (description: string, fallbackLocation: string): string => {
+  // descriptionの形式: "1 4月5日 17時00分 七二会 七二会乙地籍内 目撃 ..."
+  // または詳細な地名を含む文字列
+  
+  // 長野市の主要地域リスト
+  const areas = [
+    '篠ノ井', '松代', '若穂', '川中島', '信更', '戸隠', '七二会', 
+    '信州新町', '中条', '豊野', '大岡', '芋井', '鬼無里', '安茂里',
+    '飯綱', '牟礼', '小川', '浅川', '三輪', '柳原', '古里', '稀田',
+    '小松原', '布施', '更北', '犀川', '朝陽', '長沼', '古牧', '吉田',
+    '稲里', '青木島', '真島', '御厨', '今井', '塩崎', '西寺尾', '東和田'
+  ];
+  
+  for (const area of areas) {
+    if (description.includes(area)) {
+      return `長野市${area}`;
+    }
+  }
+  
+  // 地域名が見つからない場合、descriptionから場所らしき部分を抽出
+  const match = description.match(/\d+時\d+分\s+(\S+)\s+/);
+  if (match && match[1]) {
+    return `長野市${match[1]}`;
+  }
+  
+  return fallbackLocation;
+};
+
 // Custom Icons
 const bearIcon = new L.DivIcon({
   html: '<div style="font-size: 24px;">🐻</div>',
@@ -268,7 +297,7 @@ function App() {
                   <div className="popup-content">
                     <h3>{sighting.type === '目撃' ? '🐻 熊目撃情報' : '🐾 痕跡情報'}</h3>
                     <p><strong>日時:</strong> {sighting.date} {sighting.time}</p>
-                    <p><strong>場所:</strong> {sighting.location}</p>
+                    <p><strong>場所:</strong> {extractAreaName(sighting.description, sighting.location)}</p>
                     <p><strong>詳細:</strong> {sighting.description}</p>
                     <p>
                       <strong>危険度:</strong>{' '}
@@ -368,24 +397,24 @@ function App() {
                   <h2 className="card-title">📊 統計情報</h2>
                   <div className="statistics">
                     <div className="stat-item">
-                      <div className="stat-value">{statistics.total}</div>
+                      <div className="stat-value">{statistics.total ?? 0}</div>
                       <div className="stat-label">累計報告件数</div>
                     </div>
                     <div className="stat-item">
-                      <div className="stat-value">{statistics.by_type.目撃}</div>
+                      <div className="stat-value">{statistics.by_type?.目撃 ?? 0}</div>
                       <div className="stat-label">目撃情報</div>
                     </div>
                     <div className="stat-item">
-                      <div className="stat-value">{statistics.by_type.痕跡}</div>
+                      <div className="stat-value">{statistics.by_type?.痕跡 ?? 0}</div>
                       <div className="stat-label">痕跡情報</div>
                     </div>
                     <div className="stat-item">
-                      <div className="stat-value">{statistics.avg_danger_level}</div>
+                      <div className="stat-value">{statistics.avg_danger_level ?? '-'}</div>
                       <div className="stat-label">平均危険度</div>
                     </div>
                   </div>
                   <p style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#666' }}>
-                    最終更新: {statistics.last_updated}
+                    最終更新: {statistics.last_updated ?? '不明'}
                   </p>
                 </div>
               )}
@@ -407,7 +436,9 @@ function App() {
                         {sighting.type === '目撃' ? '🐻' : '🐾'}
                       </div>
                       <div className="sighting-info">
-                        <div className="sighting-location">{sighting.location}</div>
+                        <div className="sighting-location">
+                          {extractAreaName(sighting.description, sighting.location)}
+                        </div>
                         <div className="sighting-date">{sighting.date} {sighting.time}</div>
                       </div>
                       <span className={`danger-badge level-${sighting.danger_level}`}>

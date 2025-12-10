@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ecebaea4700fba853dd7dc022ea6496b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ecebaea4700fba853dd7dc022ea6496b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ecebaea4700fba853dd7dc022ea6496b = L.map(
+                "map_ecebaea4700fba853dd7dc022ea6496b",
+                {
+                    center: [36.634275, 138.188375],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_ecebaea4700fba853dd7dc022ea6496b);
+
+            
+
+        
+    
+            var tile_layer_f34505885d1977e029f545d947f43cda = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f34505885d1977e029f545d947f43cda.addTo(map_ecebaea4700fba853dd7dc022ea6496b);
+        
+    
+            var circle_marker_d6bd589c6f5dbebe6b7cd6a87f8c2cbd = L.circleMarker(
+                [36.6439, 138.1887],
+                {"bubblingMouseEvents": true, "color": "#d9480f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f76707", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_ecebaea4700fba853dd7dc022ea6496b);
+        
+    
+        var popup_0d3e7fd55ec328fb8cbe6af63b7a47e8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d17ae0e2f60c049ed8c7448966350374 = $(`<div id="html_d17ae0e2f60c049ed8c7448966350374" style="width: 100.0%; height: 100.0%;">2025-10-30 07:15 長野駅東口-若里公園付近 目撃: 成獣1頭が道路を横断</div>`)[0];
+                popup_0d3e7fd55ec328fb8cbe6af63b7a47e8.setContent(html_d17ae0e2f60c049ed8c7448966350374);
+            
+        
+
+        circle_marker_d6bd589c6f5dbebe6b7cd6a87f8c2cbd.bindPopup(popup_0d3e7fd55ec328fb8cbe6af63b7a47e8)
+        ;
+
+        
+    
+    
+            var circle_marker_3ee344c91fd0a42c60b1aaa6df2ee38c = L.circleMarker(
+                [36.6613, 138.1873],
+                {"bubblingMouseEvents": true, "color": "#d9480f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f76707", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_ecebaea4700fba853dd7dc022ea6496b);
+        
+    
+        var popup_c6655ba42692af931b16e313812e31c3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7c3896fb2d553a3092d8dc3464f1cacf = $(`<div id="html_7c3896fb2d553a3092d8dc3464f1cacf" style="width: 100.0%; height: 100.0%;">2025-10-29 17:40 善光寺北側の裾花川沿い 目撃: 子グマ1頭、山側へ移動</div>`)[0];
+                popup_c6655ba42692af931b16e313812e31c3.setContent(html_7c3896fb2d553a3092d8dc3464f1cacf);
+            
+        
+
+        circle_marker_3ee344c91fd0a42c60b1aaa6df2ee38c.bindPopup(popup_c6655ba42692af931b16e313812e31c3)
+        ;
+
+        
+    
+    
+            var circle_marker_edaac7b046ea17e5841b21611ef7dc93 = L.circleMarker(
+                [36.6343, 138.1965],
+                {"bubblingMouseEvents": true, "color": "#d9480f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f76707", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_ecebaea4700fba853dd7dc022ea6496b);
+        
+    
+        var popup_9d38ad49a8791e872d871b82b37fc232 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2afbfde5b74709edf871a03c86109d9 = $(`<div id="html_b2afbfde5b74709edf871a03c86109d9" style="width: 100.0%; height: 100.0%;">2025-10-28 06:50 千曲川河川敷(旭橋西側) 痕跡: 足跡多数</div>`)[0];
+                popup_9d38ad49a8791e872d871b82b37fc232.setContent(html_b2afbfde5b74709edf871a03c86109d9);
+            
+        
+
+        circle_marker_edaac7b046ea17e5841b21611ef7dc93.bindPopup(popup_9d38ad49a8791e872d871b82b37fc232)
+        ;
+
+        
+    
+    
+            var circle_marker_ef103d970332b05fb6ecf8607e99737e = L.circleMarker(
+                [36.5976, 138.181],
+                {"bubblingMouseEvents": true, "color": "#d9480f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f76707", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_ecebaea4700fba853dd7dc022ea6496b);
+        
+    
+        var popup_4fb49bfa01a267a480e969d18cb22e7b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2874d2f0b7f6a25f01116811e196cca5 = $(`<div id="html_2874d2f0b7f6a25f01116811e196cca5" style="width: 100.0%; height: 100.0%;">2025-10-27 19:10 川中島古戦場公園周辺 目撃: 成獣1頭が藪に退避</div>`)[0];
+                popup_4fb49bfa01a267a480e969d18cb22e7b.setContent(html_2874d2f0b7f6a25f01116811e196cca5);
+            
+        
+
+        circle_marker_ef103d970332b05fb6ecf8607e99737e.bindPopup(popup_4fb49bfa01a267a480e969d18cb22e7b)
+        ;
+
+        
+    
+</script>
+</html>

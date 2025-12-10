@@ -5,6 +5,7 @@ from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 import time
+import os
 
 # ページ設定
 st.set_page_config(page_title="Bear Guardian", page_icon="🐻", layout="wide")
@@ -12,24 +13,17 @@ st.set_page_config(page_title="Bear Guardian", page_icon="🐻", layout="wide")
 # データ読み込み
 @st.cache_data
 def load_bear_data():
+    geocoded_csv_path = 'data/bear_sightings_geocoded.csv'
+
+    # ジオコーディング済みファイルが存在するかチェック
+    if os.path.exists(geocoded_csv_path):
+        df = pd.read_csv(geocoded_csv_path)
+        print(f"ジオコーディング済みデータを読み込みました: {len(df)}件")
+        return df
+
+    # フォールバック: 元のCSVを使用（ジオコーディングなし）
     df = pd.read_csv('data/bear_sightings.csv')
-    # ジオコーディング（住所を緯度経度に変換）
-    geolocator = Nominatim(user_agent="bear_guardian")
-    df['lat'] = None
-    df['lon'] = None
-
-    for idx, row in df.iterrows():
-        try:
-            # 長野市内の場所をジオコーディング
-            location_str = f"{row['area']} {row['location']}, 長野市, 日本"
-            location = geolocator.geocode(location_str, timeout=10)
-            if location:
-                df.at[idx, 'lat'] = location.latitude
-                df.at[idx, 'lon'] = location.longitude
-            time.sleep(1)  # API制限回避
-        except:
-            pass
-
+    print(f"元のデータを読み込みました（ジオコーディングなし）: {len(df)}件")
     return df
 
 def create_map(bear_data, user_lat=None, user_lon=None):

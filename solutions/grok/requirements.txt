@@ -4,3 +4,4 @@ streamlit==1.40.1
 requests==2.32.3
 geopy==2.4.1
 folium==0.18.0
+streamlit-folium==0.23.1

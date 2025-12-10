@@ -9,8 +9,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # アプリケーションコードのコピー
 COPY app/ ./app/
 
-# データディレクトリの作成
+# データディレクトリの作成と環境変数設定
 RUN mkdir -p /app/data
+ENV DATA_DIR=/app/data
 
 EXPOSE 8000
 

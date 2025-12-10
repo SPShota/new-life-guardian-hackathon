@@ -102,6 +102,13 @@ def parse_pdf(pdf_path: Path | None = None, sample_path: Path = SAMPLE_CSV) -> P
         if "source" not in df.columns:
             df["source"] = "pdf"
 
+    # フォールバック: 緯度経度情報が無い場合はサンプルを使用
+    has_latlon_cols = ("lat" in df.columns) and ("lon" in df.columns)
+    latlon_missing = (not has_latlon_cols) or df[["lat", "lon"]].dropna().empty if has_latlon_cols else True
+    if latlon_missing:
+        print("[parse] lat/lon が無いためサンプルデータにフォールバックします。")
+        df = pd.read_csv(sample_path)
+
     df.to_csv(output, index=False, quoting=csv.QUOTE_NONNUMERIC)
     print(f"[parse] structured CSV -> {output}")
     return output
@@ -118,12 +125,16 @@ def generate_map(csv_path: Path | None = None) -> Path:
         raise FileNotFoundError(f"sightings CSV not found: {csv_path}")
 
     df = pd.read_csv(csv_path)
-    if "lat" not in df.columns or "lon" not in df.columns:
-        raise ValueError("CSVにlat/lon列が必要です。サンプルデータを利用してください。")
+    has_latlon_cols = ("lat" in df.columns) and ("lon" in df.columns)
+    latlon_missing = (not has_latlon_cols) or df[["lat", "lon"]].dropna().empty if has_latlon_cols else True
+    if latlon_missing:
+        print("[map] 入力にlat/lonが無いためサンプルデータで地図を生成します。")
+        df = pd.read_csv(SAMPLE_CSV)
+        has_latlon_cols = ("lat" in df.columns) and ("lon" in df.columns)
+        if (not has_latlon_cols) or df[["lat", "lon"]].dropna().empty:
+            raise ValueError("サンプルにも緯度経度がありません。")
 
     sighting_rows = df.dropna(subset=["lat", "lon"])
-    if sighting_rows.empty:
-        raise ValueError("緯度経度付きのデータがありません。")
 
     center = [sighting_rows["lat"].mean(), sighting_rows["lon"].mean()]
     m = folium.Map(location=center, zoom_start=12, control_scale=True)

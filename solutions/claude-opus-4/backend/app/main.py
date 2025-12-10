@@ -31,8 +31,17 @@ app.add_middleware(
 )
 
 # データファイルパス
-DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "data")
+# Docker環境: /app/data, ローカル環境: ../data (backend/から見て)
+DATA_DIR = os.environ.get("DATA_DIR", os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "data"))
+# Docker環境用のフォールバック
+if not os.path.exists(DATA_DIR):
+    DATA_DIR = "/app/data"
 SIGHTINGS_FILE = os.path.join(DATA_DIR, "bear_sightings.json")
+
+# 起動時のログ
+print(f"[KumaSafe] DATA_DIR: {DATA_DIR}")
+print(f"[KumaSafe] SIGHTINGS_FILE: {SIGHTINGS_FILE}")
+print(f"[KumaSafe] File exists: {os.path.exists(SIGHTINGS_FILE)}")
 
 
 # モデル定義
@@ -123,7 +132,7 @@ async def get_sightings(
     days: Optional[int] = Query(None, description="過去N日間のデータに絞り込む"),
     danger_level: Optional[int] = Query(None, ge=1, le=5, description="危険度でフィルタ")
 ):
-    """熊出没情報一覧を取得"""
+    """熊出没情報一覧を取得（日付・時刻の新しい順）"""
     data = load_sightings()
     sightings = data.get("sightings", [])
     
@@ -138,6 +147,13 @@ async def get_sightings(
     
     if danger_level:
         sightings = [s for s in sightings if s["danger_level"] >= danger_level]
+    
+    # 日付・時刻の新しい順にソート
+    sightings = sorted(
+        sightings,
+        key=lambda x: (x["date"], x["time"]),
+        reverse=True  # 降順（新しい順）
+    )
     
     return sightings
 
